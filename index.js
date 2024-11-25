@@ -11,26 +11,23 @@ const arr = [10, 20, 30, 40, 50];
 
 console.log(arr.getNegativeIndex(-1));
 console.log(arr.getNegativeIndex(-2));
-
 //Задача 2
 function getOlderUser(user1, user2) {
     return user1.age > user2.age ? user1.name : user2.name;
 }
-const user1 = { name: 'Alan', age: 18 };
-const user2 = { name: 'Magomed', age: 21 };
+const user1 = { name: 'Magomed', age: 27 };
+const user2 = { name: 'Alan', age: 21 };
 console.log(getOlderUser(user1, user2));
-
 //Задача 3
 function getOlderUserArray(users) {
     return users.reduce((oldest, user) => user.age > oldest.age ? user : oldest).name;
 }
 const users = [
-    { name: 'Alan', age: 18 },
-    { name: 'Magomed', age: 21 },
-    { name: 'Kamil', age: 25 }
+    { name: 'Magomed', age: 27 },
+    { name: 'Alan', age: 21 },
+    { name: 'Kamil', age: 18 }
 ];
 console.log(getOlderUserArray(users));
-
 //Задача 4
 //4.1
 class PrintEditionItem {
@@ -43,12 +40,8 @@ class PrintEditionItem {
     }
 //4.2
     fix() {
-        if (this.state < 100) {
-            this.state *= 1.5;
-            if (this.state > 100) {
-                this.state = 100;
-            }
-        }
+            this.state  = this._state * 1.5;
+            
     }
 //4.3
     set state(newState) {
@@ -80,11 +73,13 @@ class Book extends PrintEditionItem {
         this.type = 'book';
     }
 }
-const magazine = new Magazine('Time', '1999', 60);
-const book = new Book('1980', '1947', 328, 'Sigma');
+const magazine = new Magazine('motocycles', '2007', 60);
+const book = new Book('2000', '2005', 328, 'Sigma');
 
 console.log(magazine);
 console.log(book);
 
 book.fix();
 console.log(book.state);
+
+book.state = 1000
